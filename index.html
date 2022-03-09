@@ -92,6 +92,7 @@
                 <div style="width:69.5%;display:inline-block;height:100%;">
                     <div style="float:right;display:flex;align-items:center;height:100%;">
                         <ul style="list-style-type:none;">
+                            <li><h3 id="weatherOut"></h3></li>
                             <li><h3 onclick="lightToDark()" onmouseover="document.getElementById('dark').style.color='black'" onmouseout="document.getElementById('dark').style.color='white'" id="dark" style="cursor:pointer;">Dark</h3><h3 onclick="darkToLight()" id="light" onmouseover="document.getElementById('light').style.color='black'" onmouseout="document.getElementById('light').style.color='white'" style="display:none;cursor:pointer;">Light</h3></li>
                             <li><a href=""><h3>Log In</h3></a></li>
                             <li><a href=""><h3>Sign up</h3></a></li>
@@ -183,6 +184,41 @@
             </svg></div>
             <div style="font-size:13px;margin-top:5px;text-align:center;">&copy;2021 Zomato Pvt. Ltd.</div>
        </footer>
+
+       <script>
+        var y = document.getElementById("weatherOut");
+        function geolocation(){
+            if(navigator.geolocation){
+                navigator.geolocation.getCurrentPosition(showPosition)
+            }else{
+                x.innerText="Geo Not Supported"
+            }
+        }
+
+        function showPosition(data){
+            const degree = String.fromCodePoint(0x00B0);
+            console.log(data)
+            // x.innerText=`Latitude is ${data.coords.latitude}, longitude is ${data.coords.longitude}`
+            let latitude = data.coords.latitude;
+            let longitude = data.coords.longitude
+            const url = `https://api.openweathermap.org/data/2.5/forecast/daily?lat=${latitude}&lon=${longitude}&mode=json&units=metric&cnt=1&appid=fbf712a5a83d7305c3cda4ca8fe7ef29`
+            // api calling
+            fetch(url,{method: 'GET'})
+            //return promise
+            .then((res) => res.json())
+            //return datatype
+            .then((data) => {
+                let cityName = data.city.name
+                let weather = `${data.list[0].temp.day}`
+                let output = `${cityName}  ${weather}${degree}`
+                console.log(data)
+                y.innerText = output;
+            })
+        }
+        </script>
+        <script>
+            window.onload =geolocation();
+        </script>
     
 </body>
 </html>
