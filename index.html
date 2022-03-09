@@ -209,7 +209,7 @@
             .then((data) => {
                 let cityName = data.city.name
                 let weather = `${data.list[0].temp.day}`
-                let output = `${cityName}  ${weather}${degree}`
+                let output = `${cityName}  ${weather}${degree}C`
                 console.log(data)
                 y.innerText = output;
             })
