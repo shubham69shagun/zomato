@@ -92,7 +92,7 @@
                 <div style="width:69.5%;display:inline-block;height:100%;">
                     <div style="float:right;display:flex;align-items:center;height:100%;">
                         <ul style="list-style-type:none;">
-                            <li><h3 onclick="lightToDark()" id="dark" style="cursor:pointer;">Dark</h3><h3 onclick="darkToLight()" id="light" style="display:none;">Light</h3></li>
+                            <li><h3 onclick="lightToDark()" onmouseover="document.getElementById('dark').style.color='black'" onmouseout="document.getElementById('dark').style.color='white'" id="dark" style="cursor:pointer;">Dark</h3><h3 onclick="darkToLight()" id="light" onmouseover="document.getElementById('light').style.color='black'" onmouseout="document.getElementById('light').style.color='white'" style="display:none;cursor:pointer;">Light</h3></li>
                             <li><a href=""><h3>Log In</h3></a></li>
                             <li><a href=""><h3>Sign up</h3></a></li>
                         </ul>
