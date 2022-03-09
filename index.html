@@ -86,7 +86,7 @@
 </head>
 <body>
     <header>
-        <div style="height:15%;" id="nav" >
+        <div style="height:15%;background-color:rgba(0,0,0,0.3)" id="nav" >
             <div style="width:100%;height:100%;position:relative;">
                 <div style="width:30%;display:inline-block;height:100%;float:left;display:flex;align-items:center;padding-left:10px;"><h1 style="font-style:italic;font-weight:900;">Zomato</h1></div>
                 <div style="width:69.5%;display:inline-block;height:100%;">
@@ -198,7 +198,6 @@
         function showPosition(data){
             const degree = String.fromCodePoint(0x00B0);
             console.log(data)
-            // x.innerText=`Latitude is ${data.coords.latitude}, longitude is ${data.coords.longitude}`
             let latitude = data.coords.latitude;
             let longitude = data.coords.longitude
             const url = `https://api.openweathermap.org/data/2.5/forecast/daily?lat=${latitude}&lon=${longitude}&mode=json&units=metric&cnt=1&appid=fbf712a5a83d7305c3cda4ca8fe7ef29`
