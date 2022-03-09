@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"> -->
+    <link rel="icon" href="logo.png">
+    <link rel="stylesheet" href="index.css">
+    <!-- <script src="https://kit.fontawesome.com/6281cf7d73.js" crossorigin="anonymous"></script> -->
+    <title>Home Page</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            font-family:Arial, Helvetica, sans-serif;
+            box-sizing:border-box;
+        }
+        :root{
+            --primary-color:black;
+            --secondary-color:white;
+            --tertiary:grey;
+        }
+
+        .dark-theme{
+            --primary-color:white;
+            --secondary-color:black;
+            --tertiary:rgb(18, 18, 18);;
+        }
+        a{
+            text-decoration:none;
+            color:white;
+        }
+        body{
+            background-color:var(--secondary-color);
+            color:var(--primary-color);
+        }
+        header{
+            background:rgba(0,0,0,0.3);
+            background:url('food-wallpaper.png');
+            background-repeat:no-repeat;
+            background-position: origin;
+            background-size: cover;
+            height:400px; 
+        }
+        header #nav{
+            color:white;
+        }
+
+        li{
+            float: left;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+
+        }
+        a:hover{
+            color:black;
+        }
+        .dropdown{
+            margin-top:50px;
+        }
+        .dropdown select{
+            border-radius:5px;
+            height:50px;
+            font-size: large;
+            color:var(--primary-color);
+            outline:none;
+            background-color:var(--secondary-color);
+        }
+
+        .grid-container{
+            display:grid;
+            margin-top:30px;
+            grid-template-columns:1fr 1fr 1fr;
+        }
+        .grid-container .grid-item{
+            height:200px;
+            margin:10px;
+            box-shadow:0 0 5px var(--primary-color);
+            border-radius:7px;
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <div style="height:15%;" id="nav" >
+            <div style="width:100%;height:100%;position:relative;">
+                <div style="width:30%;display:inline-block;height:100%;float:left;display:flex;align-items:center;padding-left:10px;"><h1 style="font-style:italic;font-weight:900;">Zomato</h1></div>
+                <div style="width:69.5%;display:inline-block;height:100%;">
+                    <div style="float:right;display:flex;align-items:center;height:100%;">
+                        <ul style="list-style-type:none;">
+                            <li><h3 onclick="lightToDark()" id="dark" style="cursor:pointer;">Dark</h3><h3 onclick="darkToLight()" id="light" style="display:none;">Light</h3></li>
+                            <li><a href=""><h3>Log In</h3></a></li>
+                            <li><a href=""><h3>Sign up</h3></a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            function lightToDark(){
+                var dark = document.getElementById("dark");
+                dark.style.display = "none";
+                var light = document.getElementById("light");
+                light.style.display = "block";
+                document.body.classList.add('dark-theme');
+            }
+            function darkToLight(){
+                var dark = document.getElementById("dark");
+                dark.style.display = "block";
+                var light = document.getElementById("light");
+                light.style.display = "none";
+                document.body.classList.remove('dark-theme');
+            }
+        </script>
+        <div style="height:85%;color:white;">
+            <div style="width:70%;margin:0 auto;display:flex;align-items:center;justify-content:center;flex-direction:column;">
+                <div style="text-align:center;margin-top:30px;"><h1>Discover the best restaurants near you</h1></div>
+                <div style="width:50%" class="dropdown">
+                    <select style="width:30%;">
+                        <option>Select City</option>
+                        <option>Delhi</option>
+                        <option>Mumbai</option>
+                        <option>Pune</option>
+                    </select>
+                    <select class="restlist" style="width:60%;">
+                        <option>Select Restaurants</option>
+                        <option>Delhi</option>
+                        <option>Mumbai</option>
+                        <option>Pune</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    
+        <div style="width:70%;height:fit-content;margin-left:auto;margin-right:auto;margin-top:50px;">
+            <div class="heading"><h1>Quick Searches</h1><h4>Discover Restaurants By Meal</h4></div>
+            <div class="grid-container">
+                <div class="grid-item">
+                    <div style="float:left;height:100%;width:50%;"><img src="image/sacks.png" style="height:100%;width:100%;border-radius:7px;" alt=""></div>
+                    <div style="height:100%;width:49.5%;float:left;display:flex;align-items:center;justify-content:center;flex-direction:column;"><h2>Breakfast</h2><h5>Enjoy ur meal</h5></div>
+                </div>
+                <div class="grid-item">
+                    <div style="float:left;height:100%;width:50%;"><img src="image/lunch.png" style="height:100%;width:100%;border-radius:7px;" alt=""></div>
+                    <div style="height:100%;width:49.5%;float:left;display:flex;align-items:center;justify-content:center;flex-direction:column;"><h2>Lunch</h2><h5>Enjoy ur meal</h5></div>
+                </div>
+                <div class="grid-item">
+                    <div style="float:left;height:100%;width:50%;"><img src="image/dinner.png" style="height:100%;width:100%;border-radius:7px;" alt=""></div>
+                    <div style="height:100%;width:49.5%;float:left;display:flex;align-items:center;justify-content:center;flex-direction:column;"><h2>Dinner</h2><h5>Enjoy ur meal</h5></div>
+                </div>
+                <div class="grid-item">
+                    <div style="float:left;height:100%;width:50%;"><img src="image/drinks.png" style="height:100%;width:100%;border-radius:7px;" alt=""></div>
+                    <div style="height:100%;width:49.5%;float:left;display:flex;align-items:center;justify-content:center;flex-direction:column;"><h2>Drinks</h2><h5>Enjoy ur meal</h5></div>
+                </div>
+                <div class="grid-item">
+                    <div style="float:left;height:100%;width:50%;"><img src="image/nightlife.png" style="height:100%;width:100%;border-radius:7px;" alt=""></div>
+                    <div style="height:100%;width:49.5%;float:left;display:flex;align-items:center;justify-content:center;flex-direction:column;"><h2>Nightlife</h2><h5>Enjoy ur meal</h5></div>
+                </div>
+                <div class="grid-item">
+                    <div style="float:left;height:100%;width:50%;"><img src="image/sacks.png" style="height:100%;width:100%;border-radius:7px;" alt=""></div>
+                    <div style="height:100%;width:49.5%;float:left;display:flex;align-items:center;justify-content:center;flex-direction:column;"><h2>Breakfast</h2><h5>Enjoy ur meal</h5></div>
+                </div>
+                  
+              </div>
+        </div>
+
+    
+    
+        <footer  style="background-color:var(--tertiary);margin-top:50px;padding:10px;border-top:var(--primary-color)">
+            <div style="font-size:14px;text-align:center;" class="text-center">Design and Developed By Shubham</div>
+            <div style="margin-top:5px;text-align:center"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+              <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+            </svg>&nbsp;&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope-check-fill" viewBox="0 0 16 16">
+              <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555ZM0 4.697v7.104l5.803-3.558L0 4.697ZM6.761 8.83l-6.57 4.026A2 2 0 0 0 2 14h6.256A4.493 4.493 0 0 1 8 12.5a4.49 4.49 0 0 1 1.606-3.446l-.367-.225L8 9.586l-1.239-.757ZM16 4.697v4.974A4.491 4.491 0 0 0 12.5 8a4.49 4.49 0 0 0-1.965.45l-.338-.207L16 4.697Z"/>
+              <path d="M16 12.5a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Zm-1.993-1.679a.5.5 0 0 0-.686.172l-1.17 1.95-.547-.547a.5.5 0 0 0-.708.708l.774.773a.75.75 0 0 0 1.174-.144l1.335-2.226a.5.5 0 0 0-.172-.686Z"/>
+            </svg>&nbsp;&nbsp;<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+              <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+            </svg></div>
+            <div style="font-size:13px;margin-top:5px;text-align:center;">&copy;2021 Zomato Pvt. Ltd.</div>
+       </footer>
+    
+</body>
+</html>
